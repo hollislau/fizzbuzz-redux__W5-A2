@@ -39,6 +39,7 @@
 
   FizzBuzz.prototype.write = function() {
     var table = document.getElementById("results");
+
     var newTableHead = document.createElement("thead");
     var newTableBody = document.createElement("tbody");
     var newTableHeaders = document.createElement("th");
@@ -76,6 +77,7 @@
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
+      console.log(e.target.nodeName);
       this.setData();
       this.write();
     }.bind(this), false);
