@@ -31,9 +31,13 @@
     return userInput;
   }
 
+  FizzBuzz.prototype.setData = function() {
+    var userInput = this.read();
+
+    this.data = this.generate(userInput);
+  }
+
   FizzBuzz.prototype.write = function() {
-<<<<<<< Updated upstream
-=======
     var table = document.getElementById("results");
     var newTableHead = document.createElement("thead");
     var newTableBody = document.createElement("tbody");
@@ -61,7 +65,6 @@
   FizzBuzz.prototype.clearTable = function() {
     var table = document.getElementById("results");
     var clearElements = document.getElementsByClassName("clear");
->>>>>>> Stashed changes
 
     for (var i = 0; i < clearElements.length;) {
       table.removeChild(clearElements[0]);
@@ -69,12 +72,12 @@
   }
 
   FizzBuzz.prototype.addEventListener = function() {
-    var userInput = document.getElementById("user-input");
+    var form = document.getElementById("user-input");
 
-    userInput.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
-      console.log(this.read());
-      // console.log("hi");
+      this.setData();
+      this.write();
     }.bind(this), false);
   }
 
