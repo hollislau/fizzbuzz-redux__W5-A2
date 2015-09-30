@@ -32,7 +32,40 @@
   }
 
   FizzBuzz.prototype.write = function() {
+<<<<<<< Updated upstream
+=======
+    var table = document.getElementById("results");
+    var newTableHead = document.createElement("thead");
+    var newTableBody = document.createElement("tbody");
+    var newTableHeaders = document.createElement("th");
+    var newTableRow = document.createElement("tr");
+    var newTableData;
 
+    if (table.firstChild.nextSibling) {
+      this.clearTable();
+    }
+
+    table.appendChild(newTableHead).className = "clear";
+    table.lastChild.appendChild(newTableRow).appendChild(newTableHeaders).textContent = "#1";
+    table.appendChild(newTableBody).className = "clear";
+
+    for(var i = 0; i < this.data.length; i++) {
+      newTableRow = document.createElement("tr");
+      newTableData = document.createElement("td");
+
+      table.lastChild.appendChild(newTableRow).appendChild(newTableData)
+           .textContent = this.data[i];
+    }
+  }
+
+  FizzBuzz.prototype.clearTable = function() {
+    var table = document.getElementById("results");
+    var clearElements = document.getElementsByClassName("clear");
+>>>>>>> Stashed changes
+
+    for (var i = 0; i < clearElements.length;) {
+      table.removeChild(clearElements[0]);
+    }
   }
 
   FizzBuzz.prototype.addEventListener = function() {
